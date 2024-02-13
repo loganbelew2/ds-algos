@@ -1,5 +1,5 @@
 const numbers = [99, 55, 2, 1, 3, 32, 83, 22, 18, 14]
-let selectionSort = (array) => {
+let insertionSort = (array) => {
     const length = array.length;
     for (let i = 0; i < length; i++) {
         if (array[i] < array[0]) {
@@ -13,4 +13,4 @@ let selectionSort = (array) => {
         }
     }return array;
 }
-console.log(selectionSort(numbers))
+console.log(insertionSort(numbers))
