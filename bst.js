@@ -1,3 +1,10 @@
+class Node{
+    constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
 class BinarySearchTree{
     constructor(){
         this.root = null;
@@ -41,16 +48,32 @@ class BinarySearchTree{
             }
         } return false
     }
-}
-class Node{
-    constructor(value){
-        this.value = value;
-        this.left = null;
-        this.right = null;
+    breadthFirstSearch() {
+        let currentNode = this.root;
+        let list = [];
+        let queue = [];
+        queue.push(currentNode);
+
+        while (queue.length > 0) {
+            currentNode = queue.shift();
+            console.log(currentNode.value);
+            list.push(currentNode.value);
+            console.log(queue)
+            if (currentNode.left) {
+                queue.push(currentNode.left);
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right);
+            }   
+        }
+        return list;
     }
 }
+//9, 5, 10, 4, 8
 const tree = new BinarySearchTree(1);
-tree.insert(2);
-tree.insert(4);
-tree.insert(3);
-console.log(tree.lookup(4))
+tree.insert(9)
+tree.insert(5)
+tree.insert(8)
+tree.insert(4)
+tree.insert(10)
+tree.breadthFirstSearch();
